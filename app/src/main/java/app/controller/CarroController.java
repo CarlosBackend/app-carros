@@ -63,4 +63,13 @@ public class CarroController {
             return new ResponseEntity<>(null, null, HttpStatus.NOT_FOUND);
         }
     }
+    @GetMapping("/findByNome{nome}")// rota http://localhost:8080/api/carro/findByNome?nome=Fusca
+    public ResponseEntity<List<Carro>> findByNome(@RequestParam String nome){
+        try{
+            List<Carro> carros = carroService.findByNome(nome);
+            return ResponseEntity.ok(carros);
+        }catch (Exception e){
+            return new ResponseEntity<>(null, null, HttpStatus.NOT_FOUND);
+        }
+    }
 }

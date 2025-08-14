@@ -32,7 +32,9 @@ public class CarroService {
     }
 
     public Carro findById(long id){
-        Carro carro = carroRepository.findById(id).get();
-        return carro;
+        return carroRepository.findById(id).orElse(null);
+    }
+    public List<Carro> findByNome(String nome){
+        return carroRepository.findByNome(nome);
     }
 }
