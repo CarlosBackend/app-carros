@@ -72,4 +72,13 @@ public class CarroController {
             return new ResponseEntity<>(null, null, HttpStatus.NOT_FOUND);
         }
     }
+    @GetMapping("/findByMarca{idMarca}")
+    public ResponseEntity<List<Carro>> findByMarca(@RequestParam long idMarca){
+        try{
+            List<Carro> carros = carroService.findByMarca(idMarca);
+            return ResponseEntity.ok(carros);
+        }catch (Exception e){
+            return new ResponseEntity<>(null, null, HttpStatus.NOT_FOUND);
+        }
+    }
 }
