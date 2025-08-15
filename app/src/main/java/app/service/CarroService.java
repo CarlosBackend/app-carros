@@ -43,4 +43,7 @@ public class CarroService {
         marca.setId(idMarca);
         return carroRepository.findByMarca(marca);
     }
+    public List<Carro> findAcimaAno(int ano){
+        return carroRepository.findAcimaAno(ano);
+    }
 }

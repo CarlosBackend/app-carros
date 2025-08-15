@@ -81,4 +81,13 @@ public class CarroController {
             return new ResponseEntity<>(null, null, HttpStatus.NOT_FOUND);
         }
     }
+    @GetMapping("/findAcimaAno{ano}")
+    public ResponseEntity<List<Carro>> findAcimaAno(@RequestParam int ano){
+        try{
+            List<Carro> carros = carroService.findAcimaAno(ano);
+            return ResponseEntity.ok(carros);
+        }catch (Exception e){
+            return new ResponseEntity<>(null, null, HttpStatus.NOT_FOUND);
+        }
+    }
 }
