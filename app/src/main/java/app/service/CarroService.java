@@ -14,9 +14,18 @@ public class CarroService {
 
     public String save (Carro carro)
     {
+        verificarNomeCarro(carro.getNome(), carro.getAno());
         carroRepository.save(carro);
         return "Carro salvo com sucesso!";
     }
+
+    public boolean verificarNomeCarro(String nome, int ano){
+       if(nome.equals("Fusca") && ano > 2000){
+           throw new RuntimeException();
+       }
+       return true;
+    }
+
     public String update(Carro carro, long id){
         carro.setId(id);
         carroRepository.save(carro);

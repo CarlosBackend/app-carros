@@ -1,6 +1,7 @@
 package app.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,9 @@ public class Marca {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @NotBlank(message = "O campo nome é obrigatório!")
     private String nome;
+    @NotBlank(message = "O campo CNPJ é obrigatório!")
     private String cnpj;
 
     @OneToMany(mappedBy = "marca")

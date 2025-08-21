@@ -22,7 +22,7 @@ public class CarroController {
             String mensagem = carroService.save(carro);
             return ResponseEntity.ok(mensagem);
         }catch (Exception e){
-            return ResponseEntity.badRequest().body("Erro ao salvar o carro!");
+            return new ResponseEntity<String>("Deu esse erro aqui: " + e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
     @PutMapping("/update/{id}")// rota http://localhost:8080/api/carro/update/1
